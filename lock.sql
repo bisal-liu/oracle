@@ -1,8 +1,8 @@
-***********************************************************
-**Author:      bisal
-**Version:     1.0
-**Description: Find blocking session and provide kill sql
-***********************************************************
+*
+  Author:      bisal
+  Version:     1.0
+  Description: Find blocking session and provide kill sql
+*
 
 ACCEPT SQL_TEXT PROMPT 'SQL TEXT: '
 
