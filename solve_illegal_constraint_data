@@ -1,0 +1,25 @@
+／*
+  Author:      bisal
+  Version:     1.0
+  Description: Provide the SQL of deleting illegal constraint data in child table
+*／
+
+SELECT ' delete from '
+ || a.table_name
+ || ' a  where not exists ( select 1 from '
+ || c_pk.table_name
+ || ' b  where b.'
+ || b.column_name
+ || '=a.'
+ || a.column_name
+ ||');' SQL
+FROM user_cons_columns a
+JOIN user_constraints c
+ON a.constraint_name = c.constraint_name
+JOIN user_constraints c_pk
+ON c.r_constraint_name = c_pk.constraint_name
+JOIN user_cons_columns b
+ON c_pk.constraint_name = b.constraint_name
+WHERE c.constraint_type = 'R'
+AND upper(a.table_name) = upper('&Table_Name')
+AND upper(a.constraint_name) = upper('&FK_NAME');
