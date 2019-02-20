@@ -1,8 +1,10 @@
-／*
+/*
   Author:      bisal
   Version:     1.0
-  Description: Find blocking session and provide kill sql
-*／
+  Description: Find blocking session and provide kill sql. 
+               Before use it, you should create procedure "print_table".
+               You can find it in https://github.com/bisal-liu/oracle/blob/master/print_table.sql
+*/
 
 set serveroutput on
 
